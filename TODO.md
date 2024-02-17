@@ -1,12 +1,17 @@
 UI Componets
-[] Table 
-[] Table row
-[] Sort button
+[x] Table 
+[x] Table row
+[x] Sort button
 [] Search input
 [] Error paragraph or banner
 
 Function
-[] Sorting for 1 column 
+[x] Sorting for 1 column 
+[x] Custom sorting hooks
+[] Custom filtering hooks
 [] Filter text search for 1 column 
-[] Custom hooks
 [] Error Handling
+
+Styling
+[] Style tables
+[] add hover transitions

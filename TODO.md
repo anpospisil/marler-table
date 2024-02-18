@@ -3,13 +3,13 @@ UI Componets
 [x] Table row
 [x] Sort button
 [] Search input
-[] Error paragraph or banner
+[] Error text
 
 Function
 [x] Sorting for 1 column 
 [x] Custom sorting hooks
-[] Custom filtering hooks
-[] Filter text search for 1 column 
+[x] Custom filtering hooks
+[x] Filter text search for 1 column 
 [] Error Handling
 
 Styling

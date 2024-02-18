@@ -1,8 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Filter Hook
 export function useFilterData(initialData) {
   const [filteredData, setFilteredData] = useState(initialData);
+
+
+  useEffect(() => {
+    setFilteredData(initialData);
+   }, [initialData]);
 
   const filter = (value) => {
     if (value) {

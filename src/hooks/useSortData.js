@@ -6,11 +6,9 @@ export function useSortData(initialData, initialOrder = "asc") {
   // State of Order
   const [order, setOrder] = useState(initialOrder);
 
-  const [sortKey, setSortKey] = useState(Object.keys(initialData[0])[0]);
-
   const sort = (value) => {
     const returnValue = order === 'desc' ? 1 : -1;
-    setSortKey(value);
+    
     setSortedData([...sortedData.sort((a, b) => {
       const aValue = typeof a[value] === 'number' ? a[value] : String(a[value]).toLowerCase();
       const bValue = typeof b[value] === 'number' ? b[value] : String(b[value]).toLowerCase();

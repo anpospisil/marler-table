@@ -6,11 +6,13 @@ import {TableProps} from "./types"
 import sampleData from "../../sample_table_data.json";
 export const Table= () => {
 
-  // Custom Sorting Hook, Default order is "ASC"
-  const { sortedData, updateOrder } = useSortData(sampleData);
+    // Custom Sorting Hook, Default order is "ASC"
+    const { sortedData, updateOrder } = useSortData(sampleData);
+    // Custom Filter Hook
+    const { filteredData, filter } = useFilterData(sortedData);
 
-   // Custom Filter Hook
-   const { filteredData, filter } = useFilterData(sampleData);
+
+ 
 
   // Sets types for headers
   type Keys = (keyof (typeof sampleData)[0])[] & {};
@@ -32,7 +34,7 @@ export const Table= () => {
 </label>
     <table>
       {/* Triggers the useSortData hook by updating the order */}
-      <button onClick={updateOrder}>
+      <button onClick={updateOrder}>Update order
       </button>
       <thead>
         <tr>

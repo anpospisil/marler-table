@@ -1,26 +1,28 @@
 import { useState } from 'react';
-import sampleData from "../sample_table_data.json";
 
 // Sorting Hook
-export function useSortData(initialValue, sortByColumn) {
+export function useSortData(initialData, initialOrder = "asc") {
+  const [sortedData, setSortedData] = useState(initialData);
+  // State of Order
+  const [order, setOrder] = useState(initialOrder);
 
-  // State of all Data
-  const [data, setData] = useState(sampleData);
-  // State of Price
-  const [order, setOrder] = useState(initialValue);
+  const [sortKey, setSortKey] = useState(Object.keys(initialData[0])[0]);
 
-  // Toggles the order between ASC or DESC
+  const sort = (value) => {
+    const returnValue = order === 'desc' ? 1 : -1;
+    setSortKey(value);
+    setSortedData([...sortedData.sort((a, b) => {
+      const aValue = typeof a[value] === 'number' ? a[value] : String(a[value]).toLowerCase();
+      const bValue = typeof b[value] === 'number' ? b[value] : String(b[value]).toLowerCase();
+      return aValue > bValue ? returnValue * -1 : returnValue;
+    })]);
+  }
   const updateOrder = () => {
-    setOrder((prevOrder) => (prevOrder === "ASC" ? "DESC" : "ASC"));
+    const updatedOrder = order === 'asc' ? 'desc' : 'asc';
+
+    setOrder(updatedOrder);
+    sort('price');
+   
   };
-
-  // Sorts table data depending on the current order
-  const sortedData = [...data].sort((a, b) => {
-    return order === "ASC"
-      ? a[sortByColumn] - b[sortByColumn]
-      : b[sortByColumn] - a[sortByColumn];
-  }); 
-
-  return [order, sortedData, updateOrder];
+  return { sortedData, updateOrder };
 }
-

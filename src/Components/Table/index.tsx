@@ -1,37 +1,38 @@
-import { useEffect } from 'react';
 import { useSortData } from '../../hooks/useSortData';
-import { useSearchInput } from '../../hooks/useSearchInput';
+import { useFilterData } from '../../hooks/useFilterData';
 import { TableRow } from "../TableRow";
 import { SearchInput } from "../SearchInput";
 import {TableProps} from "./types"
-
-export const Table = () => {
+import sampleData from "../../sample_table_data.json";
+export const Table= () => {
 
   // Custom Sorting Hook, Default order is "ASC"
-  const [order, data, updateOrder] = useSortData("ASC", "price");
-  console.log(data);
+  const { sortedData, updateOrder } = useSortData(sampleData);
+
    // Custom Filter Hook
-  const [searchInput, handleChange, filterData] = useSearchInput('');
+   const { filteredData, filter } = useFilterData(sampleData);
 
   // Sets types for headers
-  type Keys = (keyof (typeof data)[0])[] & {};
+  type Keys = (keyof (typeof sampleData)[0])[] & {};
 
   // Defines table headers by the keys of the first entry
-  const headers = Object.keys(data[0]) as Keys;
+  const headers = Object.keys(sampleData[0]) as Keys;
 
   console.log(headers);
 
   return (
     <>
-    {/* pass props to SearchIInput component */}
+    {/* ========== pass props to SearchInput component =========== */}
     <label>Search Categories:
-<input type="text" value={searchInput} onChange={handleChange} />
-<p>{searchInput}</p>
+    <input
+          type="text"
+          placeholder="Filter items"
+          onChange={(event) => filter(event.target.value)}
+        />
 </label>
     <table>
       {/* Triggers the useSortData hook by updating the order */}
       <button onClick={updateOrder}>
-        Sort by: {order === "ASC" ? "DESC" : "ASC"}
       </button>
       <thead>
         <tr>
@@ -43,7 +44,7 @@ export const Table = () => {
       </thead>
       <tbody>
             {/* Displays table rows */}
-        {data.map((d:TableProps) => {
+        {filteredData.map((d:TableProps) => {
           return (
             <TableRow
               key={d.id}

@@ -12,8 +12,6 @@ export const Table= () => {
     const { filteredData, filter } = useFilterData(sortedData);
 
 
- 
-
   // Sets types for headers
   type Keys = (keyof (typeof sampleData)[0])[] & {};
 
@@ -23,19 +21,24 @@ export const Table= () => {
   console.log(headers);
 
   return (
-    <>
+    <div className='container'>
     {/* ========== pass props to SearchInput component =========== */}
+    <div className='search-container'>
+    <button onClick={updateOrder}>Update order
+      </button>
+    
     <label>Search Categories:
     <input
           type="text"
-          placeholder="Filter items"
+          placeholder="Type here..."
           onChange={(event) => filter(event.target.value)}
         />
 </label>
+
+</div>
     <table>
       {/* Triggers the useSortData hook by updating the order */}
-      <button onClick={updateOrder}>Update order
-      </button>
+     
       <thead>
         <tr>
           {/* Displays table headers */}
@@ -48,7 +51,7 @@ export const Table= () => {
             {/* Displays table rows */}
         {filteredData.map((d:TableProps) => {
           return (
-            <TableRow
+            <TableRow 
               key={d.id}
               id={d.id}
               name={d.name}
@@ -61,6 +64,9 @@ export const Table= () => {
         })}
       </tbody>
     </table>
-    </>
+    {!filteredData.length && (
+        <p className='error-message'>* No results found, please adjust your search query</p>
+      )}
+    </ div>
   );
 };

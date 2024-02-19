@@ -5,5 +5,4 @@ export interface  TableProps {
     category: string;
     price: number;
     description: string;
-    // Add more fields if necessary
   }

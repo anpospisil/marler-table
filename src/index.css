@@ -8,28 +8,32 @@ body {
   color:#2c4f6c;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  display: flex;
+  justify-content: center;
 }
 .container{
-  margin: 0 auto;
-  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  padding: 3em 0;
   max-width: 1400px;
   width: 100%;
 
 }
 .search-container{
-  padding: 16px 16px 16px 0;
+  display: flex;
+  padding: 16px 0;
+  align-items: center;
+  justify-content: space-between;
 }
+
 button{
-padding: 0.4em 1em;
+padding: 0.5em 1em;
 font-size: 1.25em;
 font-weight: 700; 
 color: #ffffff; 
 background-color: #1c91c7;
+border: none;
 border-radius: 1rem;  
 transition: all 0.125s ease-in-out;
 }
@@ -39,7 +43,6 @@ button:hover {
   }
 
   label{
-    margin-left: 8px;
     color: #1c91c7;
     font-size: 1.5em;
     font-weight: bold;
@@ -54,18 +57,17 @@ button:hover {
   table{
     width: 100%;
     border: 2px solid #ccc;
+    border-collapse: collapse;
   }
 
   th{
-    padding: 8px 0;
+    padding: 1em;
     text-transform: capitalize;
     font-size: 1.25em;
     color: #1c91c7;
     text-align: left;
   }
-  th:nth-of-type(1){
-    padding-left: 1em;
-  }
+
   .table-row{
     background-color: #fff;
     transition: all 0.125s ease-in-out;
@@ -76,7 +78,8 @@ button:hover {
     color: #fff;
 
   }
-  .table-row td:nth-of-type(1){
+  
+  table td{
     padding:  0.625em 1em;
   }
   .error-message{
@@ -84,6 +87,51 @@ button:hover {
     font-size: 1.25em;
     color: red;
   }
-/* 
-'marler-blue-lg': '#05bcfb',
-'marler-blue': '#1c91c7', */
+  td span{
+    display: none;
+  }
+  @media screen and (max-width: 991px) {
+
+    .container{
+      margin: 3em 0;
+      padding: 0;
+    }
+    .search-container{
+      padding: 1em;
+      gap: 0.5em;
+    }
+    label{
+      font-size: 1.25em;
+    }
+    input{
+      margin-left: 0;
+      font-size: 1em;
+    }
+    button{
+      font-size: 1em;
+    }
+    table{
+      border: none;
+      border-top: 2px solid #ccc;
+    }
+    table thead {
+      display: none;
+    }
+   
+    table td {
+      display: flex;
+      padding:  0;
+      margin:  0.5em 1em;
+    }
+    .table-row td:first-child{
+      padding-top: 1em;
+    }
+    td span{
+      display: flex;
+      font-weight: bold;
+      text-transform: capitalize;
+      width: 120px;
+      min-width: 120px;
+    }
+    
+  }

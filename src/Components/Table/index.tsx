@@ -7,7 +7,7 @@ import sampleData from "../../sample_table_data.json";
 export const Table= () => {
 
     // Custom Sorting Hook, Default order is "ASC"
-    const { sortedData, updateOrder } = useSortData(sampleData);
+    const { order, sortedData, updateOrder } = useSortData(sampleData);
     // Custom Filter Hook
     const { filteredData, filter } = useFilterData(sortedData);
 
@@ -24,9 +24,7 @@ export const Table= () => {
     <div className='container'>
     {/* ========== pass props to SearchInput component =========== */}
     <div className='search-container'>
-    <button onClick={updateOrder}>Update order
-      </button>
-    
+   
     <label>Search Categories:
     <input
           type="text"
@@ -34,7 +32,9 @@ export const Table= () => {
           onChange={(event) => filter(event.target.value)}
         />
 </label>
-
+<button onClick={updateOrder}>Sort Price: {order === "asc" ? "ASC" : "DESC" }
+      </button>
+    
 </div>
     <table>
       {/* Triggers the useSortData hook by updating the order */}

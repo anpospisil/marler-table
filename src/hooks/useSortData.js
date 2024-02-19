@@ -22,5 +22,5 @@ export function useSortData(initialData, initialOrder = "asc") {
     sort('price');
    
   };
-  return { sortedData, updateOrder };
+  return { order, sortedData, updateOrder };
 }

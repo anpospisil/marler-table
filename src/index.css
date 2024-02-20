@@ -93,7 +93,7 @@ button:hover {
   @media screen and (max-width: 991px) {
 
     .container{
-      margin: 3em 0;
+      margin: 0;
       padding: 0;
     }
     .search-container{
@@ -122,6 +122,9 @@ button:hover {
       display: flex;
       padding:  0;
       margin:  0.5em 1em;
+    }
+    .table-row {
+      border-bottom: 2px solid #ccc;
     }
     .table-row td:first-child{
       padding-top: 1em;

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 import { useSortData } from "../../hooks/useSortData";
 import { useFilterData } from "../../hooks/useFilterData";
@@ -7,11 +7,11 @@ import { TableProps } from "./types";
 import sampleData from "../../sample_table_data.json";
 
 export const Table = () => {
-    // Custom Filter Hook
-    const { filteredData, filter } = useFilterData(sampleData);
+  // Custom Filter Hook
+  const { filteredData, filter } = useFilterData(sampleData);
   // Custom Sorting Hook, Default order is "ASC"
-  const { order, sortedData, setSortedData, updateOrder } = useSortData(filteredData);
-
+  const { order, sortedData, setSortedData, updateOrder } =
+    useSortData(filteredData);
 
   // Sets types for headers
   type Keys = (keyof (typeof sampleData)[0])[] & {};
@@ -21,13 +21,12 @@ export const Table = () => {
 
   console.log(headers);
 
-// Call useSortData whenever filteredData changes
-  useEffect(() => {  
-    setSortedData(filteredData)
+  // Call useSortData whenever filteredData changes
+  useEffect(() => {
+    setSortedData(filteredData);
   }, [filteredData]);
 
   return (
-    
     <div className="container">
       <div className="search-container">
         <label>
@@ -54,16 +53,11 @@ export const Table = () => {
         </thead>
         <tbody>
           {/* Displays table rows */}
-          {sortedData.map((d: TableProps) => {
+          {sortedData.map((data: TableProps, index:number) => {
             return (
               <TableRow
-                key={d.id}
-                id={d.id}
-                name={d.name}
-                quantity={d.quantity}
-                category={d.category}
-                price={d.price}
-                description={d.description}
+              key={index}
+                data={data}
               />
             );
           })}

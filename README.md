@@ -52,12 +52,12 @@ This project is a dynamic React-based web app featuring a sortable and searchabl
 ## Folder Structure
 
 marler-table/  
-|-- src/  
-|   |-- Components/  
-        |-- Table  
-        |-- TableRow  
-|   |-- hooks/  
-        useFilterData.js  
-        useSortData.js  
-|   index.css  
-|-- README.md
+&nbsp;&nbsp;&nbsp;&nbsp;|-- src/  
+&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;|-- Components/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- Table  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- TableRow  
+&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;|-- hooks/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;useFilterData.js  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;useSortData.js  
+&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;index.css  
+&nbsp;&nbsp;&nbsp;&nbsp;|-- README.md`

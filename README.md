@@ -51,7 +51,7 @@ This project is a dynamic React-based web app featuring a sortable and searchabl
 
 ## Folder Structure
 
-marler-table/  
+`marler-table/  
 |-- src/  
 |   |-- Components/  
         |-- Table  
@@ -60,4 +60,4 @@ marler-table/
         useFilterData.js  
         useSortData.js  
 |   index.css  
-|-- README.md  
+|-- README.md`

@@ -12,15 +12,15 @@ Assessment for Marler Integrity
 
 ## Introduction
 
-This project is a dynamic React-based web app featuring a sortable and searchable table. It's designed responsively across various screen sizes. The code is written in modern JavaScript, using React hooks to keep things organized and running smoothly.
+This project is a dynamic React-based web app featuring a sortable and searchable table. It's designed responsively across various screen sizes. The code is written in modern JavaScript and Typescript, using React hooks to keep things organized and running smoothly.
 
 ## Features
 
 1. Dynamic Table Display
-2. Custom Filtering Hook
-3. Custom Sorting Hook
+2. Custom Filtering Hook `useFilterData`
+3. Custom Sorting Hook `useSortData`
 4. Error Handling
-5. State Management ising 'useState' and 'useEffect'
+5. State Management using 'useState' and 'useEffect'
 6. Reusable Components
 7. Responsive Design
 
@@ -28,7 +28,7 @@ This project is a dynamic React-based web app featuring a sortable and searchabl
 
 1. Clone the repository:
 
-`git clone https://github.com/anpospisil/marler-table.git`
+`git clone https://github.com/anpospisil/marler-table.git`  
 `cd main`
 
 2. Install dependencies:
@@ -51,13 +51,13 @@ This project is a dynamic React-based web app featuring a sortable and searchabl
 
 ## Folder Structure
 
-marler-table/
-|-- src/
-|   |-- Components/
-        |-- Table
-        |-- TableRow
-|   |-- hooks/
-        useFilterData.js
-        useSortData.js
-|   index.css
-|-- README.md
+marler-table/  
+|-- src/  
+|   |-- Components/  
+        |-- Table  
+        |-- TableRow  
+|   |-- hooks/  
+        useFilterData.js  
+        useSortData.js  
+|   index.css  
+|-- README.md  

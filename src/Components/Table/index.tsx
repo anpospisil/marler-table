@@ -1,27 +1,28 @@
 import { useEffect } from "react";
-
 import { useSortData } from "../../hooks/useSortData";
 import { useFilterData } from "../../hooks/useFilterData";
 import { TableRow } from "../TableRow";
 import { TableProps } from "./types";
 import sampleData from "../../sample_table_data.json";
 
+// Table Component: Displays a table with dynamic headers and sortable rows.
 export const Table = () => {
-  // Custom Filter Hook
+  
+ // Custom Filter Hook: Use this hook to filter data based on category.
   const { filteredData, filter } = useFilterData(sampleData);
-  // Custom Sorting Hook, Default order is "ASC"
+
+  // Custom Sorting Hook: Handles sorting of data based on the 'price' property.
+  // Default order is ascending ('asc').
   const { order, sortedData, setSortedData, updateOrder } =
     useSortData(filteredData);
 
-  // Sets types for headers
-  type Keys = (keyof (typeof sampleData)[0])[] & {};
+// Define type for table headers
+  type HeaderKeys = (keyof (typeof sampleData)[0])[] & {};
 
-  // Defines table headers by the keys of the first entry
-  const headers = Object.keys(sampleData[0]) as Keys;
+  // Extract headers based on the keys of the first entry in the sample data
+  const headers = Object.keys(sampleData[0]) as HeaderKeys;
 
-  console.log(headers);
-
-  // Call useSortData whenever filteredData changes
+  // Use effect to update sortedData when filteredData changes
   useEffect(() => {
     setSortedData(filteredData);
   }, [filteredData]);
@@ -29,6 +30,8 @@ export const Table = () => {
   return (
     <div className="container">
       <div className="search-container">
+
+        {/* Input for searching categories */}
         <label>
           Search Categories:
           <input
@@ -37,22 +40,22 @@ export const Table = () => {
             onChange={(event) => filter(event.target.value)}
           />
         </label>
-        {/* Triggers the useSortData hook by updating the order */}
+      {/* Button to trigger sorting based on 'price' */}
         <button onClick={updateOrder}>
-          Sort Price: {order === "asc" ? "ASC" : "DESC"}
+          Sort by Price: {order === "asc" ? "ASC" : "DESC"}
         </button>
       </div>
       <table>
         <thead>
           <tr>
-            {/* Displays table headers */}
+        {/* Display table headers dynamically */}
             {headers.map((header, i) => {
               return <th key={i}>{header.toString()}</th>;
             })}
           </tr>
         </thead>
         <tbody>
-          {/* Displays table rows */}
+         {/* Display table rows using the TableRow component */}
           {sortedData.map((data: TableProps, index:number) => {
             return (
               <TableRow
@@ -63,6 +66,7 @@ export const Table = () => {
           })}
         </tbody>
       </table>
+      {/* Display an error message if no results are found */}
       {!filteredData.length && (
         <p className="error-message">
           * No results found, please adjust your search query

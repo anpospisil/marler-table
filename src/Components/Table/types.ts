@@ -3,6 +3,6 @@ export interface TableProps {
   name: string;
   quantity: number;
   category: string;
-  price: number;
+  price: number | string;
   description: string;
 }

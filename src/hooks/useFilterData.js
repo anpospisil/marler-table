@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 export function useFilterData(initialData) {
   const [filteredData, setFilteredData] = useState(initialData);
 
-
   useEffect(() => {
     setFilteredData(initialData);
    }, [initialData]);
@@ -17,6 +16,6 @@ export function useFilterData(initialData) {
     }
   };
   
-  return { filteredData, filter };
+  return { filteredData,setFilteredData, filter };
 }
 

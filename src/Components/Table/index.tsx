@@ -7,8 +7,7 @@ import sampleData from "../../sample_table_data.json";
 
 // Table Component: Displays a table with dynamic headers and sortable rows.
 export const Table = () => {
-  
- // Custom Filter Hook: Use this hook to filter data based on category.
+  // Custom Filter Hook: Use this hook to filter data based on category.
   const { filteredData, filter } = useFilterData(sampleData);
 
   // Custom Sorting Hook: Handles sorting of data based on the 'price' property.
@@ -16,7 +15,7 @@ export const Table = () => {
   const { order, sortedData, setSortedData, updateOrder } =
     useSortData(filteredData);
 
-// Define type for table headers
+  // Define type for table headers
   type HeaderKeys = (keyof (typeof sampleData)[0])[] & {};
 
   // Extract headers based on the keys of the first entry in the sample data
@@ -30,7 +29,6 @@ export const Table = () => {
   return (
     <div className="container">
       <div className="search-container">
-
         {/* Input for searching categories */}
         <label>
           Search Categories:
@@ -40,7 +38,7 @@ export const Table = () => {
             onChange={(event) => filter(event.target.value)}
           />
         </label>
-      {/* Button to trigger sorting based on 'price' */}
+        {/* Button to trigger sorting based on 'price' */}
         <button onClick={updateOrder}>
           Sort by Price: {order === "asc" ? "ASC" : "DESC"}
         </button>
@@ -48,21 +46,16 @@ export const Table = () => {
       <table>
         <thead>
           <tr>
-        {/* Display table headers dynamically */}
+            {/* Display table headers dynamically */}
             {headers.map((header, i) => {
               return <th key={i}>{header.toString()}</th>;
             })}
           </tr>
         </thead>
         <tbody>
-         {/* Display table rows using the TableRow component */}
-          {sortedData.map((data: TableProps, index:number) => {
-            return (
-              <TableRow
-              key={index}
-                data={data}
-              />
-            );
+          {/* Display table rows using the TableRow component */}
+          {sortedData.map((data: TableProps, index: number) => {
+            return <TableRow key={index} data={data} />;
           })}
         </tbody>
       </table>

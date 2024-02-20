@@ -6,13 +6,14 @@ Assessment for Marler Integrity
 
 - [Introduction](#introduction)
 - [Features](#features)
+- [Process](#process)
 - [Installation](#installation)
 - [Technologies Used](#technologies-used)
 - [Folder Structure](#folder-structure)
 
 ## Introduction
 
-This project is a dynamic React-based web app featuring a sortable and searchable table. It's designed responsively across various screen sizes. The code is written in modern JavaScript and Typescript, using React hooks to keep things organized and running smoothly.
+This component is a dynamic React-based web app featuring a sortable and searchable table. It's designed responsively across various screen sizes. The code is written in modern JavaScript and Typescript, using React hooks to keep things organized and running smoothly.
 
 ## Features
 
@@ -23,6 +24,10 @@ This project is a dynamic React-based web app featuring a sortable and searchabl
 5. State Management using 'useState' and 'useEffect'
 6. Reusable Components
 7. Responsive Design
+
+## Process
+
+
 
 ## Installation
 
@@ -60,4 +65,4 @@ marler-table/
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;useFilterData.js  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;useSortData.js  
 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;index.css  
-&nbsp;&nbsp;&nbsp;&nbsp;|-- README.md`
+&nbsp;&nbsp;&nbsp;&nbsp;|-- README.md

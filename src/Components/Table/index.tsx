@@ -2,11 +2,14 @@ import { useEffect } from "react";
 import { useSortData } from "../../hooks/useSortData";
 import { useFilterData } from "../../hooks/useFilterData";
 import { TableRow } from "../TableRow";
-import { TableProps } from "./types";
-import sampleData from "../../sample_table_data.json";
+import {TableProps} from "../../types"
+
+interface TableComponentProps {
+  sampleData: TableProps[];
+}
 
 // Table Component: Displays a table with dynamic headers and sortable rows.
-export const Table = () => {
+export const Table: React.FC<TableComponentProps> = ({ sampleData }) => {
   // Custom Filter Hook: Use this hook to filter data based on category.
   const { filteredData, filter } = useFilterData(sampleData);
 
@@ -15,12 +18,8 @@ export const Table = () => {
   const { order, sortedData, setSortedData, updateOrder } =
     useSortData(filteredData);
 
-  // Define type for table headers
-  type HeaderKeys = (keyof (typeof sampleData)[0])[] & {};
-
-  // Extract headers based on the keys of the first entry in the sample data
-  const headers = Object.keys(sampleData[0]) as HeaderKeys;
-
+ // Extract headers based on the keys of the first entry in the sample data
+ const headers: (keyof TableProps)[] = ['id', 'name', 'quantity', 'category', 'price', 'description'];
   // Use effect to update sortedData when filteredData changes
   useEffect(() => {
     setSortedData(filteredData);
@@ -54,8 +53,8 @@ export const Table = () => {
         </thead>
         <tbody>
           {/* Display table rows using the TableRow component */}
-          {sortedData.map((data: TableProps, index: number) => {
-            return <TableRow key={index} data={data} />;
+          {sortedData.map((data: TableProps) => {
+            return <TableRow key={data.id} data={data} />;
           })}
         </tbody>
       </table>
